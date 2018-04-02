@@ -14,13 +14,50 @@
  *= require_self
  */
 
+@import 'gritter';
+
+ .home {
+   margin-top: 25px;
+ }
+
+ .page-header {
+   background-color: white;
+   padding: 10px;
+   margin-bottom: 25px;
+   border-radius: 5px;
+ }
+
+ #background {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   min-width: 100%;
+   min-height: 100%;
+   width: auto;
+   height: auto;
+   z-index: -100;
+   -webkit-transform: translateX(-50%) translateY(-50%);
+   transform: translateX(-50%) translateY(-50%);
+   background: image-url('background.jpg') no-repeat;
+   background-size: cover;
+ }
+
  .nav-link {
    text-align: right;
    margin-right: 5px;
  }
 
  .card {
-   margin: 5px;
+   margin: 8px;
  }
+
+.list-group {
+  position: relative;
+  top: 100px;
+}
+
+.list-group-item {
+  margin: 10px;
+}
 
 @import 'bootstrap'

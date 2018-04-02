@@ -11,13 +11,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="site-wrapper">
+     <div class="site-wrapper-inner">
+       <div class="cover-container">
 
-<%= render 'shared/navbar' %>
+         <div id="background"></div>
+         <%= render 'shared/navbar' %>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+         <!-- <p class="notice"><%= notice %></p>
+         <p class="alert"><%= alert %></p> -->
 
-<%= yield %>
+         <%= yield %>
+         <%= alerts %>
+
+       </div>
+     </div>
+   </div>
+
 
 </body>
 </html>
