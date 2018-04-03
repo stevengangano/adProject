@@ -5,7 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
    #name must always be entered on the form
-   validates_presence_of :first_name, :last_name, :password,
+   validates_presence_of :first_name, :last_name
+
+   mount_uploader :avatar, AvatarUploader
 
    def firstName
      #Takes the first and last name, splits them, and then grabs 1st element
@@ -25,6 +27,11 @@ class User < ActiveRecord::Base
      # => user.first_name => "John"
      #self.name grabs the entire name string
      last_name
+   end
+
+   private
+   def avatar_size_validation
+    errors[:avatar] << "should be less than 500KB" if avatar.size > 0.5.megabytes
    end
 
 end

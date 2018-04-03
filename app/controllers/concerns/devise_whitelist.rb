@@ -11,9 +11,9 @@ module DeviseWhitelist
 
   def configure_permitted_parameters
     #allows name to be passed to "sign_up" page aka /register
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :avatar, :avatar_cache])
     #allows name to be passed to "account_update" page aka /edit
-    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :avatar, :avatar_cache, :remove_avatar])
   end
 
 end

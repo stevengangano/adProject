@@ -18,6 +18,11 @@ gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'bootstrap', '~> 4.0'
 gem 'gritter', '~> 1.2'
 gem 'bundler', '~> 1.16', '>= 1.16.1'
+gem 'carrierwave'
+gem 'carrierwave-aws', '~> 1.0', '>= 1.0.2'
+gem 'mini_magick'
+gem 'dotenv-rails', '~> 2.1', '>= 2.1.2'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '~> 4.1', '>= 4.1.1'

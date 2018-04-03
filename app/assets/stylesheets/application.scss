@@ -44,10 +44,19 @@
    border-radius: 5px;
  }
 
- .nav-link {
-   text-align: right;
-   margin-right: 5px;
+ .profile-pic {
+;
  }
+
+ .nav-link {
+   float: right;
+   margin-right: 5px;
+   border-radius: 50px;
+ }
+
+.avatar {
+  text-align: right;
+}
 
  .card {
    margin: 8px;
@@ -68,5 +77,13 @@
   margin: 217px auto;
   border-radius: 5px;
 }
+
+//Edit User
+.edit-buttons ul li {
+  display: inline-block;
+  float: right;
+  margin: 3px 5px;
+}
+
 
 @import 'bootstrap';
