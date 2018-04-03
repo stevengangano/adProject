@@ -13,9 +13,26 @@
  *= require_tree .
  *= require_self
  */
-
+@import 'bootstrap';
 @import 'gritter';
 
+// Shared
+#background {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background: image-url('background.jpg') no-repeat;
+  background-size: cover;
+}
+
+// Homepage
  .home {
    margin-top: 25px;
  }
@@ -25,21 +42,6 @@
    padding: 10px;
    margin-bottom: 25px;
    border-radius: 5px;
- }
-
- #background {
-   position: fixed;
-   top: 50%;
-   left: 50%;
-   min-width: 100%;
-   min-height: 100%;
-   width: auto;
-   height: auto;
-   z-index: -100;
-   -webkit-transform: translateX(-50%) translateY(-50%);
-   transform: translateX(-50%) translateY(-50%);
-   background: image-url('background.jpg') no-repeat;
-   background-size: cover;
  }
 
  .nav-link {
@@ -53,11 +55,18 @@
 
 .list-group {
   position: relative;
-  top: 100px;
+  top: 80px;
 }
 
 .list-group-item {
   margin: 10px;
 }
 
-@import 'bootstrap'
+// Login page
+.card.login-register-edit {
+  width: 50%;
+  margin: 217px auto;
+  border-radius: 5px;
+}
+
+@import 'bootstrap';

@@ -8,6 +8,8 @@ module ApplicationHelper
   end
 
   def alert_generator msg
-    js add_gritter(msg, title: "Ad Project", sticky:false, time: 2000)
+    js extend_gritter(msg, position: :top_left)
+    js add_gritter(msg, title: "Ad Project", sticky:false, time: 1000)
+
   end
 end

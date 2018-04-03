@@ -185,7 +185,7 @@ DEPENDENCIES
   devise (~> 4.4, >= 4.4.3)
   gritter (~> 1.2)
   jbuilder (~> 2.0)
-  jquery-rails
+  jquery-rails (~> 4.1, >= 4.1.1)
   pg (~> 0.11)
   rails (= 4.2.8)
   rails_12factor
