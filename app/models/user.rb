@@ -5,16 +5,16 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
    #name must always be entered on the form
-   validates_presence_of :email, :password
+   validates_presence_of :password,
 
-   def first_name
+   def names
      #Takes the first and last name, splits them, and then grabs 1st element
      #in the array.
      #For example:
      #Go to rails console => type User.all => User.last => user = User.last =>
      # => user.first_name => "John"
      #self.name grabs the entire name string
-     self.name
+     first_name + ' ' + last_name
    end
 
 end
