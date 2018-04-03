@@ -91,7 +91,7 @@ GEM
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
-    pg (0.21.0)
+    pg (0.20.0)
     popper_js (1.12.9)
     rack (1.6.9)
     rack-test (0.6.3)
@@ -186,7 +186,7 @@ DEPENDENCIES
   gritter (~> 1.2)
   jbuilder (~> 2.0)
   jquery-rails (~> 4.1, >= 4.1.1)
-  pg (~> 0.11)
+  pg (~> 0.20.0)
   rails (= 4.2.8)
   rails_12factor
   sass-rails (~> 5.0)
