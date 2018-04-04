@@ -44,14 +44,18 @@
    border-radius: 5px;
  }
 
- .profile-pic {
-;
- }
+a.nav-link:hover {
+  color: white;
+}
 
  .nav-link {
    float: right;
    margin-right: 5px;
    border-radius: 50px;
+ }
+
+ .nav-link a:hover {
+   background-color: white;
  }
 
 .avatar {
