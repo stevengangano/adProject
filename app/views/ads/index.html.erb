@@ -1,0 +1,19 @@
+<div class="container home">
+    <div class="page-header text-center">
+      <h4 class=""> Ad Project </h4>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+        <% @ads.each do |ad| %>
+          <%= image_tag(ad.ad_image, class:'img-responsive', style: 'margin: 10px 5px;') %>
+        <% end %>
+      </div>
+
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+        <a href="#"><li class="list-group-item">Ad category</li></a>
+        <a href="#"><li class="list-group-item">Ad category</li></a>
+        <a href="#"><li class="list-group-item">Ad category</li></a>
+      </div>
+  </div>
+</div>

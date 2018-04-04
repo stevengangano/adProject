@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :ads
   devise_for :users, controllers: { registrations: 'users/registrations' }, path: '', path_names: { sign_in: 'login',
   sign_out: 'logout', sign_up: 'register'}
-  root to: "home#index"
+  root to: "ads#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

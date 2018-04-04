@@ -1,0 +1,65 @@
+<div class="card login-register-edit">
+  <div class="card-body ad">
+
+    <%= form_for(@ad) do |f| %>
+
+      <% if @ad.errors.any? %>
+        <% @ad.errors.full_messages.each do |error| %>
+          <%= alert_generator error %>
+        <% end %>
+      <% end %>
+
+      <h3> My Ad </h3>
+
+      <hr>
+
+      <div class="row">
+        <div class="col-md-5">
+          <div class="form-group">
+            <%= f.label :title %><br>
+            <%= f.text_field :title, class:'' %>
+          </div>
+        </div>
+
+          <!-- <div class="col-md-1">
+            <div class="field">
+              <%= f.label :ad_image do %>
+                <%= f.file_field :ad_image %>
+                <%= f.hidden_field :ad_image_cache %>
+              <% end %>
+            </div>
+         </div> -->
+      </div>
+
+      <div class="form-group">
+        <%= f.label :price %><br>
+        <%= f.text_field :price, class:'' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :description %><br>
+        <%= f.text_area :description, class:'', rows: 10 %>
+      </div>
+
+      <!-- Edit Page -->
+      <!-- <% if current_user.ad_image.present? %>
+        <%= image_tag(current_user.ad_image, class:'img-thumbnail', size: '225x200', style: 'border-radius:50%;') %>
+      <% end %> -->
+
+      <div class="field">
+        <%= f.label :ad_image do %>
+          <%= f.file_field :ad_image %>
+          <%= f.hidden_field :ad_image_cache %>
+        <% end %>
+      </div>
+
+      <!-- <div class="form-group">
+        <%= f.file_field :thumb_image, :class => 'form-control' %>
+      </div> -->
+
+      <div class="actions">
+        <%= f.submit "Verify", class: 'btn btn-primary', style:'float: right;' %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
