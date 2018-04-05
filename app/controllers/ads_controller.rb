@@ -5,7 +5,7 @@ class AdsController < ApplicationController
   # access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
 
   def index
-    @ads = Ad.all
+    @ads = Ad.published
     # @portfolios = Portfolioo.all
     # @portfolio = Portfolioo.paginate(page: params[:page], per_page: 5)
   end
@@ -20,8 +20,8 @@ class AdsController < ApplicationController
     @ad = Ad.new(ad_params)
     # @article.user = current_user
     if @ad.save
-        flash[:notice] = "AD was successfully created"
-        redirect_to root_path
+        flash[:notice] = ""
+        redirect_to ad_path(@ad)
     else
       render :new
     end
@@ -42,9 +42,10 @@ class AdsController < ApplicationController
   #   end
   # end
 
-  # def show
-  #   # @portfolio = Portfolioo.find(params[:id])
-  # end
+  def show
+    # @portfolio = Portfolioo.find(params[:id])
+    @ad = Ad.find(params[:id])
+  end
 
   #no template
   # def destroy
@@ -54,6 +55,12 @@ class AdsController < ApplicationController
   #   redirect_to portfolio_path
   # end
 
+  def toggle_status
+    @ad = Ad.find(params[:id])
+    @ad.published! if @ad.draft?
+    flash[:notice] = "Ad was succesfully posted"
+    redirect_to root_path
+  end
 
   private
   #method to add data to the database
