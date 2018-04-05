@@ -14,9 +14,9 @@
  *= require_self
  */
 
-
 @import 'bootstrap';
 @import 'gritter';
+
 
 // Shared
 #background {
@@ -68,10 +68,6 @@ a.nav-link:hover {
    margin: 8px;
  }
 
-.list-group {
-  position: relative;
-  top: 80px;
-}
 
 .list-group-item {
   margin: 10px;
@@ -102,21 +98,27 @@ a.nav-link:hover {
 
 // Small devices (landscape phones, 576px and up)
 @media (max-width: 576px) {
-  // Login page
   .card.login-register-edit {
     width: 75%;
   }
 }
 
-// // Medium devices (tablets, 768px and up)
-// @media (min-width: 768px) { ... }
-//
+// Medium devices (tablets, 768px and up)
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 769px) {
+  .breadcrumb {
+    display: none;
+  }
+}
+
 // // Large devices (desktops, 992px and up)
 // @media (min-width: 992px) { ... }
 //
 // // Extra large devices (large desktops, 1200px and up)
 // @media (min-width: 1200px) { ... }
-
-
-
-@import 'bootstrap';
