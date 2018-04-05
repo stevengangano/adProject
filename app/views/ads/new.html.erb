@@ -13,33 +13,34 @@
 
       <hr>
 
-      <div class="field" style="float: right;">
-        <%= f.label :ad_image do %>
-          <%= f.file_field :ad_image %>
-          <%= f.hidden_field :ad_image_cache %>
-        <% end %>
+      <div class="form-group">
+        <div style="float: right;">
+          <label class="btn btn-primary btn-sm">
+            Choose File <%= f.file_field :ad_image, accept: 'image/jpeg,image/gif,image/png', style: 'display: none;' %>
+          <label>
+        </div>
       </div>
 
       <br><br>
 
       <div class="form-group">
         <%= f.label :title %><br>
-        <%= f.text_field :title, class:'' %>
+        <%= f.text_field :title, class:'form-control' %>
       </div>
 
       <div class="form-group">
         <%= f.label :price %><br>
-        <%= f.text_field :price, class:'' %>
+        <%= f.text_field :price, class:'form-control' %>
       </div>
       <div class="form-group">
         <%= f.label :description %><br>
-        <%= f.text_area :description, class:'', rows: 10 %>
+        <%= f.text_area :description, class:'form-control', rows: 10 %>
       </div>
 
 
 
       <div class="actions">
-        <%= f.submit "Verify", class: 'btn btn-primary', style:'float: right;' %>
+        <%= f.submit "Verify", class: 'btn btn-success', style:'float: right;' %>
       </div>
     <% end %>
 

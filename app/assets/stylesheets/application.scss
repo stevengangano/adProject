@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+
 @import 'bootstrap';
 @import 'gritter';
 
@@ -94,9 +96,27 @@ a.nav-link:hover {
   position: relative;
 }
 
-.ad-img {
-    // position: absolute;
-    // top: 0px;
-    // right: 0px;
+// Media Queries
+// Extra small devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 576px) {
+  // Login page
+  .card.login-register-edit {
+    width: 75%;
+  }
 }
+
+// // Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) { ... }
+//
+// // Large devices (desktops, 992px and up)
+// @media (min-width: 992px) { ... }
+//
+// // Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) { ... }
+
+
+
 @import 'bootstrap';
