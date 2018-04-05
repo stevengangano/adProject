@@ -98,6 +98,9 @@ a.nav-link:hover {
 
 // Small devices (landscape phones, 576px and up)
 @media (max-width: 576px) {
+  .breadcrumb-item {
+    font-size: 12px;
+  }
   .card.login-register-edit {
     width: 75%;
   }

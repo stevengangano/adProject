@@ -1,7 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">
-    <%= image_tag 'http://via.placeholder.com/30x30', width: 30, height: 30, class: "" %>
-  Ad Project
+    <%= image_tag 'https://upload.wikimedia.org/wikipedia/commons/2/2a/New_Logo_AD.jpg', width: 30, height: 30, class: "" %>
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -18,11 +17,9 @@
       <li class="nav-item">
         <%= link_to "My profile", edit_user_registration_path, class: 'nav-link' %></a>
       </li>
-
       <li class="nav-item">
         <%= link_to "My Ads", root_path, class: 'nav-link' %></a>
       </li>
-
       <li class="nav-item">
         <%= link_to "New Ad", new_ad_path, class: 'nav-link' %></a>
       </li>
@@ -36,6 +33,9 @@
       </li>
 
     <% else %>
+      <li class="nav-item">
+        <%= link_to "Ads", root_path, class: 'nav-link' %></a>
+      </li>
       <li class="nav-item">
         <%= link_to "Register", new_user_registration_path, class:'nav-link' %>
       </li>
