@@ -6,9 +6,9 @@
         <div class="card-body d-flex flex-column align-items-start">
           <!-- <strong class="d-inline-block mb-2 text-primary">Topic</strong> -->
           <h3 class="mb-0">
-            <a class="text-dark"><%= number_to_currency(ad.title)%></a>
+            <a class="text-dark"><%= ad.title %></a>
           </h3>
-          <div class="mb-1 text-muted"><%= ad.price %></div>
+          <div class="mb-1 text-muted"><%= number_to_currency(ad.price) %></div>
           <p class="card-text mb-auto"><%= ad.description %></p>
         </div>
 
