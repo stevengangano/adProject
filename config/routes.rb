@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'users/:id', to: 'users#show', as: 'user'
+
+  resources :users, except: [:new]
+
   devise_for :users, controllers: { registrations: 'users/registrations' }, path: '', path_names: { sign_in: 'login',
   sign_out: 'logout', sign_up: 'register'}
   root to: "ads#index"

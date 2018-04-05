@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">
-    <%= image_tag 'https://upload.wikimedia.org/wikipedia/commons/2/2a/New_Logo_AD.jpg', width: 30, height: 30, class: "" %>
+  <a class="navbar-brand" href="/">
+    <%= image_tag 'https://upload.wikimedia.org/wikipedia/commons/2/2a/New_Logo_AD.jpg', width: 30, height: 30 %>
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -18,7 +18,7 @@
         <%= link_to "My profile", edit_user_registration_path, class: 'nav-link' %></a>
       </li>
       <li class="nav-item">
-        <%= link_to "My Ads", root_path, class: 'nav-link' %></a>
+        <%= link_to "My Ads", user_path(current_user), class: 'nav-link' %></a>
       </li>
       <li class="nav-item">
         <%= link_to "New Ad", new_ad_path, class: 'nav-link' %></a>
@@ -33,9 +33,9 @@
       </li>
 
     <% else %>
-      <li class="nav-item">
-        <%= link_to "Ads", root_path, class: 'nav-link' %></a>
-      </li>
+    <li class="nav-item">
+      <%= link_to "Ads", root_path, class: 'nav-link' %></a>
+    </li>
       <li class="nav-item">
         <%= link_to "Register", new_user_registration_path, class:'nav-link' %>
       </li>

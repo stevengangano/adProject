@@ -1,4 +1,7 @@
 class Ad < ActiveRecord::Base
+  belongs_to :user
+  validates :user_id, presence: true
+
   enum status: { draft: 0, published: 1 }
   mount_uploader :ad_image, AvatarUploader
 

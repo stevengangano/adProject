@@ -19,6 +19,7 @@ class AdsController < ApplicationController
     #render plain: params[:article].inspect
     @ad = Ad.new(ad_params)
     # @article.user = current_user
+    @ad.user = current_user
     if @ad.save
         flash[:notice] = ""
         redirect_to ad_path(@ad)
