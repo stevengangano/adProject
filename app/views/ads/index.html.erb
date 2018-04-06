@@ -2,9 +2,10 @@
 
   <nav aria-label="breadcrumb" style="margin-top: 30px;">
     <ol class="breadcrumb">
-      <li class='breadcrumb-item'><%= link_to 'Ad Category', root_path%></li>
-      <li class='breadcrumb-item'><%= link_to 'Ad Category', root_path%></li>
-      <li class='breadcrumb-item'><%= link_to 'Ad Category', root_path%></li>
+      <li style="margin-right: 5px;">Categories: </li>
+      <% @side_bar_categories.each do |category| %>
+        <li class=''><%= link_to category.title, category_path(category), style: 'margin-right: 5px;' %></li>
+      <% end %>
       <!-- <li class="breadcrumb-item active" aria-current="page">Data</li> -->
     </ol>
   </nav>
@@ -24,9 +25,13 @@
     </div>
     <div class="col-md-3 sidebar">
       <ul class="list-group">
-        <a href="#"><li class="list-group-item">Ad category</li></a>
-        <a href="#"><li class="list-group-item">Ad category</li></a>
-        <a href="#"><li class="list-group-item">Ad category</li></a>
+        <li class="list-group-item">
+          <h6 style="text-decoration:underline; margin-bottom: 15px;"> Categories </h6>
+          <% @side_bar_categories.each do |category| %>
+          <p class=""><%= link_to category.title, category_path(category, class:'') %></p>
+          <% end %>
+        </li>
+
       </ul>
     </div>
   </div>

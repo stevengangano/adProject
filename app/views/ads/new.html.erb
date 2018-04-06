@@ -24,6 +24,18 @@
       <br><br>
 
       <div class="form-group">
+      <%= f.label :category_id %><br>
+      <%= f.collection_select(:category_id, Category.all, :id, :title,
+                              {
+                                selected: @ad.category_id,
+                                include_blank: true
+                              },
+                                class: 'form-control'
+                              )
+      %>
+    </div>
+
+      <div class="form-group">
         <%= f.label :title %><br>
         <%= f.text_field :title, class:'form-control' %>
       </div>

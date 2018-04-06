@@ -1,0 +1,7 @@
+
+
+<% @categories.each do |topic| %>
+<div>
+  <%= link_to topic.title, category_path(topic) %>
+</div>
+<% end %>

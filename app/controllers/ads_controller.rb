@@ -4,6 +4,8 @@ class AdsController < ApplicationController
   # before_action :set_portfolio_item, only: [:edit, :update, :show, :destroy]
   # access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
 
+  before_action :set_sidebar_categories, only: [:index]
+
   def index
     @ads = Ad.published
     # @portfolios = Portfolioo.all
@@ -75,13 +77,12 @@ class AdsController < ApplicationController
                                  :description,
                                  :ad_image,
                                  :avatar_cache,
-                                 :remove_avatar)
-
+                                 :remove_avatar,
+                                 :category_id)
     end
 
-  # def set_portfolio_item
-  #   @portfolio = Portfolioo.find(params[:id])
-  # end
-
+    def set_sidebar_categories
+      @side_bar_categories = Category.with_ads
+    end
 
 end

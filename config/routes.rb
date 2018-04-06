@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :categories, only: [:index, :show]
+
   resources :ads do
     member do
       get :toggle_status
@@ -8,7 +10,7 @@ Rails.application.routes.draw do
 
   get 'ads/:id/info', to: 'ads#info', as: 'info'
 
-
+  #Overides show path in 'resourches :users'
   get 'users/:id', to: 'users#show', as: 'user'
 
   resources :users, except: [:new]
