@@ -10,6 +10,10 @@ class AdsController < ApplicationController
     # @portfolio = Portfolioo.paginate(page: params[:page], per_page: 5)
   end
 
+  def info
+    @ad = Ad.find(params[:id])
+  end
+
   def new
     @ad = Ad.new
   end

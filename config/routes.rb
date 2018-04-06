@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'ads/:id/info', to: 'ads#info', as: 'info'
+
+
   get 'users/:id', to: 'users#show', as: 'user'
 
   resources :users, except: [:new]
