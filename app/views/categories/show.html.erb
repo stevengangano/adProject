@@ -22,6 +22,10 @@
                 <%= 'Created by:' + ' ' + ad.user.first_name + ' ' + ad.user.last_name unless ad.user.nil? %>
               </small>
             </div>
+            <br>
+            <% if ad.user != current_user %>
+              <%= link_to 'Buy', root_path, class:'btn btn-success btn-sm', style:'float: right;' %>
+            <% end %>
           </div>
         </div>
       </div>

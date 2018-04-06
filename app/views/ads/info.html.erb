@@ -6,10 +6,16 @@
     <h5><%= simple_format @ad.description %></h5>
     <br>
 
-    <%= image_tag(@ad.ad_image) %>
+    <%= image_tag(@ad.ad_image, class:'img-responsive') %>
     <br><br>
 
     <%= 'Created by:' + ' ' + @ad.user.first_name + ' ' + @ad.user.last_name unless @ad.user.nil? %>
-    <%= link_to 'Back', root_path, class:'btn btn-success', style:'float: right;' %>
+    <br><br>
+    <%= link_to 'Back', root_path, style:'float: left;' %>
+
+    <% if @ad.user != current_user %>
+      <%= link_to 'Buy', root_path, class:'btn btn-success btn-sm', style:'float: right;' %>
+    <% end %>
+
   </div>
 </div>
