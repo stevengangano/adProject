@@ -9,7 +9,7 @@
             <a class="text-dark"><%= ad.title %></a>
           </h3>
           <div class="mb-1 text-muted"><%= number_to_currency(ad.price) %></div>
-          <p class="card-text mb-auto"><%= ad.description %></p>
+          <p class="card-text mb-auto"><%= simple_format ad.description %></p>
         </div>
 
         <%= image_tag(ad.ad_image, class:'card-img-right flex-auto d-none d-md-block', height: '200', width:'200') %>
