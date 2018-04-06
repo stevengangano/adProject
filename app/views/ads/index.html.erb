@@ -9,13 +9,13 @@
     </ol>
   </nav>
 
+
   <div class="row">
     <div class="col-md-9">
       <div class="row">
         <% @ads.each do |ad| %>
         <div class="col-md-4">
           <div class="card mb-4 box-shadow">
-
            <%= image_tag(ad.ad_image, class:'card-img-top', alt:"Card image cap") %>
 
             <!-- <div class="card-body"> -->
@@ -33,12 +33,51 @@
         <% end %>
       </div>
     </div>
+
+
+
     <div class="col-md-3 sidebar">
       <ul class="list-group">
         <a href="#"><li class="list-group-item">Ad category</li></a>
         <a href="#"><li class="list-group-item">Ad category</li></a>
         <a href="#"><li class="list-group-item">Ad category</li></a>
       </ul>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Button to Open the Modal -->
+<a type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  <img src="https://stebs-ad-project.s3.us-west-1.amazonaws.com/uploads/ad/ad_image/3/test.jpg">
+</a>
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">ad.title</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <h1> ad.price </h1>
+        <h5> ad.description </h5>
+        <img src="https://stebs-ad-project.s3.us-west-1.amazonaws.com/uploads/ad/ad_image/3/test.jpg">
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <p> Posted by: ad.user.first_name + ' ' + ad.user.last_name  </p>
+
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
     </div>
   </div>
 </div>
