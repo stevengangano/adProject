@@ -9,7 +9,7 @@
     <%= image_tag(@ad.ad_image) %>
     <br><br>
 
-    <%= 'Created by:' + ' ' + @ad.user.first_name unless @ad.user.first_name == nil %>
+    <%= 'Created by:' + ' ' + @ad.user.first_name unless @ad.user.nil? %>
     <%= link_to 'Back', root_path, class:'btn btn-success', style:'float: right;' %>
   </div>
 </div>
