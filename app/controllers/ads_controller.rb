@@ -3,7 +3,7 @@ class AdsController < ApplicationController
   # layout "portfolio"
   # before_action :set_portfolio_item, only: [:edit, :update, :show, :destroy]
   # access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
-  before_filter :authenticate, :except => [:index, :new, :show, :info, :details]
+  before_filter :authenticate, :except => [:index, :new, :create, :show, :info, :details]
   before_action :set_sidebar_categories, only: [:index]
 
   def index
