@@ -12,16 +12,6 @@ class AdsController < ApplicationController
     # @portfolio = Portfolioo.paginate(page: params[:page], per_page: 5)
   end
 
-  def info
-    @ad = Ad.find(params[:id])
-  end
-
-  def details
-    @ad = Ad.find(params[:id])
-    @address = Detail.new
-    redirect_to(new_user_session_path) if current_user.nil?
-  end
-
   def new
     @ad = Ad.new
   end
@@ -59,6 +49,19 @@ class AdsController < ApplicationController
     # @portfolio = Portfolioo.find(params[:id])
     @ad = Ad.find(params[:id])
   end
+
+
+  def info
+    @ad = Ad.find(params[:id])
+  end
+
+  def details
+    @ad = Ad.find(params[:id])
+    @address = Detail.new
+    redirect_to(new_user_session_path) if current_user.nil?
+    redirect_to(root_path) if current_user == @ad.user
+  end
+
 
   #no template
   # def destroy
