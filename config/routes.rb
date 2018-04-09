@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  #Needed for detail Model to work
+  resources :details
+
   resources :categories, only: [:index, :show]
 
   resources :ads do
@@ -9,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   get 'ads/:id/info', to: 'ads#info', as: 'info'
+  get 'ads/:id/details', to: 'ads#details', as: 'ad_detail'
 
   #Overides show path in 'resourches :users'
   get 'users/:id', to: 'users#show', as: 'user'

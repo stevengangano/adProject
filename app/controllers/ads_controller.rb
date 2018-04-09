@@ -16,6 +16,12 @@ class AdsController < ApplicationController
     @ad = Ad.find(params[:id])
   end
 
+  def details
+    @ad = Ad.find(params[:id])
+    @address = Detail.new
+  end
+
+
   def new
     @ad = Ad.new
   end
