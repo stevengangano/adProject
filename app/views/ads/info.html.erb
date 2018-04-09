@@ -9,7 +9,7 @@
     <%= image_tag(@ad.ad_image, class:'img-responsive') %>
     <br><br>
 
-    <%= 'Created by:' + ' ' + @ad.user.first_name + ' ' + @ad.user.last_name unless @ad.user.nil? %>
+    <%= 'Posted by:' + ' ' + @ad.user.first_name + ' ' + @ad.user.last_name unless @ad.user.nil? %>
     <br><br>
     <%= link_to 'Back', root_path, style:'float: left;' %>
 
