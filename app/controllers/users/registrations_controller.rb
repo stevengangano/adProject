@@ -40,6 +40,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   protected
 
+  #Disabling update password from Edit profile
   def update_resource(resource, params)
     if params[:password]
       resource.password = params[:password]
@@ -48,6 +49,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
    resource.update_without_password(params)
   end
+
+
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params

@@ -3,7 +3,7 @@ class AdsController < ApplicationController
   # layout "portfolio"
   # before_action :set_portfolio_item, only: [:edit, :update, :show, :destroy]
   # access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
-
+  before_filter :authenticate, :except => [:index, :new, :show, :info, :details]
   before_action :set_sidebar_categories, only: [:index]
 
   def index
@@ -19,6 +19,7 @@ class AdsController < ApplicationController
   def details
     @ad = Ad.find(params[:id])
     @address = Detail.new
+    redirect_to(new_user_session_path) if current_user.nil?
   end
 
   def new

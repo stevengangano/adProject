@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   resources :users, except: [:new]
 
-  devise_for :users, controllers: { registrations: 'users/registrations' }, path: '', path_names: { sign_in: 'login',
+  devise_for :users, controllers: { registrations: 'users/registrations', passwords: 'users/passwords' }, path: '', path_names: { sign_in: 'login',
   sign_out: 'logout', sign_up: 'register'}
   root to: "ads#index"
   # The priority is based upon order of creation: first created -> highest priority.
