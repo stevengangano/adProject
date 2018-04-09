@@ -1,7 +1,6 @@
 class Ad < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
-  belongs_to :detail
   validates :user_id, presence: true
 
   enum status: { draft: 0, published: 1 }

@@ -21,7 +21,6 @@ class AdsController < ApplicationController
     @address = Detail.new
   end
 
-
   def new
     @ad = Ad.new
   end

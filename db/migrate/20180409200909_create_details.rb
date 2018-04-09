@@ -5,8 +5,6 @@ class CreateDetails < ActiveRecord::Migration
       t.string :city
       t.string :postal_code
       t.string :state
-
-      t.timestamps null: false
     end
   end
 end
