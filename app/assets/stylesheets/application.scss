@@ -73,6 +73,8 @@ a.nav-link:hover {
   margin: 10px;
 }
 
+
+
 // Login page
 .card.login-register-edit {
   width: 50%;
@@ -115,8 +117,11 @@ a.nav-link:hover {
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 769px) {
-  .breadcrumb {
+  .breadcrumb-hide {
     display: none;
+  }
+  .breadcrumb-show-all {
+    display: block;
   }
 }
 
