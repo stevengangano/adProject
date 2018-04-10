@@ -1,4 +1,10 @@
 <div class="container" style="margin-top: 30px;">
+  <% if @user_ads.empty? %>
+  <div class="text-center">
+    <h1 style="color: white;">You have no ads created!</h1>
+    <%= link_to "Click here to created a new ad", new_ad_path %>
+  </div>
+  <% else %>
   <div class="row mb-2">
     <% @user_ads.each do |ad| %>
     <div class="col-md-6">
@@ -17,4 +23,5 @@
     </div>
     <% end %>
   </div>
+  <% end %>
 </div>
