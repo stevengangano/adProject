@@ -1,18 +1,22 @@
 Rails.application.routes.draw do
 
+  resources :checkouts
   #Needed for detail Model to work
-  resources :details
+
 
   resources :categories, only: [:index, :show]
 
   resources :ads do
     member do
       get :toggle_status
+      post :create_address
     end
   end
 
   get 'ads/:id/info', to: 'ads#info', as: 'info'
   get 'ads/:id/details', to: 'ads#details', as: 'ad_detail'
+  # get 'ads/:id/create_address', to: "ads#checkout", as: 'checkout'
+
 
   #Overides show path in 'resourches :users'
   get 'users/:id', to: 'users#show', as: 'user'

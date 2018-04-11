@@ -1,0 +1,54 @@
+<div class="card login-register-edit">
+  <div class="card-body ad text-center">
+    <div class="row" style="position: relative;">
+      <div class="col-md-4">
+        <%= form_for(@address) do |f| %>
+
+        <% if @address.errors.any? %>
+          <% @address.errors.full_messages.each do |error| %>
+            <%= alert_generator error %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <hr>
+
+      <div class="col-md-8">
+          <div class="form-group">
+            <%= f.label :address %><br>
+            <%= f.text_field :address, class:'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :city %><br>
+            <%= f.text_field :city, class:'form-control' %>
+          </div>
+
+          <div class="row">
+            <div class="col-md-8">
+              <div class="form-group">
+                <%= f.label :postal_code, 'Zip/Postal Code' %><br>
+                <%= f.text_field :postal_code, class:'form-control' %>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <%= f.label :state %><br>
+                <%= f.text_field :state, class:'form-control' %>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="actions">
+            <%= f.submit "Continue", class: 'btn btn-success', style: 'position: absolute; bottom: -50px; right: 8px;' %>
+          </div>
+
+        <% end %>
+      </div>
+    </div>
+      <br>
+      <%= link_to 'Back', root_path, style:'float: left;' %>
+  </div>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180410192926) do
+ActiveRecord::Schema.define(version: 20180411001438) do
 
   create_table "ads", force: :cascade do |t|
     t.string   "title"
@@ -23,9 +23,13 @@ ActiveRecord::Schema.define(version: 20180410192926) do
     t.integer  "status",      default: 0
     t.integer  "user_id"
     t.integer  "category_id"
+    t.integer  "detail_id"
+    t.integer  "checkout_id"
   end
 
   add_index "ads", ["category_id"], name: "index_ads_on_category_id"
+  add_index "ads", ["checkout_id"], name: "index_ads_on_checkout_id"
+  add_index "ads", ["detail_id"], name: "index_ads_on_detail_id"
 
   create_table "categories", force: :cascade do |t|
     t.string   "title"
@@ -33,11 +37,23 @@ ActiveRecord::Schema.define(version: 20180410192926) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "checkouts", force: :cascade do |t|
+    t.string   "address"
+    t.string   "city"
+    t.string   "postal_code"
+    t.string   "state"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+  end
+
   create_table "details", force: :cascade do |t|
-    t.string "address"
-    t.string "city"
-    t.string "postal_code"
-    t.string "state"
+    t.string   "address"
+    t.string   "city"
+    t.string   "postal_code"
+    t.string   "state"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

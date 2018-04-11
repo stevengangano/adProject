@@ -7,7 +7,7 @@ class AdsController < ApplicationController
   before_action :set_sidebar_categories, only: [:index]
 
   def index
-    @ads = Ad.published
+    @ads = Ad.published.recent.page(params[:page]).per(9)
     # @portfolios = Portfolioo.all
     # @portfolio = Portfolioo.paginate(page: params[:page], per_page: 5)
   end
@@ -55,13 +55,28 @@ class AdsController < ApplicationController
     @ad = Ad.find(params[:id])
   end
 
-  def details
+  def details #"def new"
     @ad = Ad.find(params[:id])
     @address = Detail.new
     redirect_to(new_user_session_path) if current_user.nil?
     redirect_to(root_path) if current_user == @ad.user
   end
 
+  def create_address #"def create"
+    #render plain: params[:article].inspect
+    @ad = Detail.new(detail_params)
+    # @article.user = current_user
+    @ad.user = current_user
+    if @ad.save
+        redirect_to checkout(@ad)
+    else
+      render :details
+    end
+  end
+
+ def checkout #"def show"
+   @ad = Ad.find(params[:id])
+ end
 
   #no template
   # def destroy
@@ -88,6 +103,13 @@ class AdsController < ApplicationController
                                  :avatar_cache,
                                  :remove_avatar,
                                  :category_id)
+    end
+
+    def detail_params
+      params.require(:detail).permit(:address,
+                                 :city,
+                                 :postal_code,
+                                 :state)
     end
 
     def set_sidebar_categories

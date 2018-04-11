@@ -4,7 +4,7 @@
     <h4> All </h4>
   </div>
 
-  <nav class="breadcrumb-show-all" aria-label="breadcrumb" style="margin-top: 30px; width; 75%">
+  <nav class="breadcrumb-show-all" aria-label="breadcrumb" style="margin-top: 30px;">
     <ol class="breadcrumb">
       <li style="margin-right: 10px;">Categories: </li>
       <a href="<%=categories_url%>"><li style='margin-right: 20px;'> All </li> </a>
@@ -14,6 +14,10 @@
       <!-- <li class="breadcrumb-item active" aria-current="page">Data</li> -->
     </ol>
   </nav>
+
+  <div class="row align-items-center justify-content-center">
+    <%= paginate @categories %>
+  </div>
 
   <div class="row">
     <% @ads.each do |ad| %>

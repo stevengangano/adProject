@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   before_action :set_sidebar_categories, only: [:index, :show]
 
   def index
-    @categories = Category.all
+    @categories = Category.all.page(params[:page]).per(9)
     @ads = Ad.published
   end
 

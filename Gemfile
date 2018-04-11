@@ -22,7 +22,7 @@ gem 'carrierwave'
 gem 'carrierwave-aws', '~> 1.0', '>= 1.0.2'
 gem 'mini_magick'
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.2'
-
+gem 'kaminari', '~> 1.1', '>= 1.1.1'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '~> 4.1', '>= 4.1.1'

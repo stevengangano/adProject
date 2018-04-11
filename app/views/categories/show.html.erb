@@ -32,7 +32,7 @@
           </div>
           <br>
           <% if ad.user != current_user %>
-            <%= link_to 'Buy', ad_detail_path(ad), class:'btn btn-success btn-sm', style:'float: right;' %>
+            <%= link_to 'Buy', new_checkout_path, class:'btn btn-success btn-sm', style:'float: right;' %>
           <% end %>
         </div>
       </div>
