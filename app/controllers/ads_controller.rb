@@ -55,29 +55,6 @@ class AdsController < ApplicationController
     @ad = Ad.find(params[:id])
   end
 
-  def details #"def new"
-    @ad = Ad.find(params[:id])
-    @address = Detail.new
-    redirect_to(new_user_session_path) if current_user.nil?
-    redirect_to(root_path) if current_user == @ad.user
-  end
-
-  def create_address #"def create"
-    #render plain: params[:article].inspect
-    @ad = Detail.new(detail_params)
-    # @article.user = current_user
-    @ad.user = current_user
-    if @ad.save
-        redirect_to checkout(@ad)
-    else
-      render :details
-    end
-  end
-
- def checkout #"def show"
-   @ad = Ad.find(params[:id])
- end
-
   #no template
   # def destroy
   #   # @portfolio = Portfolioo.find(params[:id])

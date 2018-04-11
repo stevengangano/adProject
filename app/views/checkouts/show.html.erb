@@ -1,1 +1,25 @@
-<%= @ad.inspect %>
+
+
+
+<div class="card login-register-edit">
+  <div class="card-body ad">
+    <div class="row">
+      <div class="col-md-4">
+        <strong>Shipping to:</strong><br>
+        <%= @checkout_info.user.first_name + ' ' + @checkout_info.user.last_name %><br>
+        <span><%= @checkout_info.address %> </span>
+        <p><%= @checkout_info.city + ', ' + @checkout_info.state + ', ' + @checkout_info.postal_code %> </p>
+      </div>
+
+      <div class="col-md-4">
+        <H6> WORKING ON PUTTING AD INFO HERE </H6>
+      </div>
+
+
+      <div class="col-md-4">
+        <span> Quantity: <%= @checkout_info.quantity %> </span><br>
+        <p> Total: </p>
+      </div>
+    </div>
+  </div>
+</div>
