@@ -14,7 +14,7 @@
         <%= image_tag(@ad.ad_image, class:'img-thumbnail') %><br>
         Item: <%= @ad.title%><br>
         <span> Qty: <%= @checkout_info.quantity.to_i %> </span><br>
-        <p> Order Total: <%= number_to_currency(@ad.price * @checkout_info.quantity) %></p>
+        <p> Order Total: <%= @ad.price * @checkout_info.quantity %></p>
       </div>
     </div>
   </div>
