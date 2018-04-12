@@ -2,7 +2,7 @@
   <div class="card-body ad text-center">
     <div class="row" style="position: relative;">
       <div class="col-md-4">
-        <%= form_tag  checkouts_path(@address), method: "post" do %>
+        <%= form_tag  checkouts_path(@checkout), method: "post" do %>
 
         <div><%= image_tag(@ad.ad_image, class:'img-thumbnail') %></div>
         <h5><%= @ad.title %><h5>

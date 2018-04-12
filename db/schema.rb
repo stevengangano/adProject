@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20180411191740) do
 
   create_table "ads", force: :cascade do |t|
     t.string   "title"
-    t.string   "price"
+    t.decimal  "price"
     t.text     "description"
     t.string   "ad_image"
     t.datetime "created_at",              null: false
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20180411191740) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
-    t.integer  "quantity"
+    t.decimal  "quantity"
   end
 
   create_table "details", force: :cascade do |t|
