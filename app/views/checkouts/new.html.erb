@@ -4,9 +4,9 @@
       <div class="col-md-4">
         <%= form_tag  checkouts_path(@address), method: "post" do %>
 
-        <%= image_tag(@ad.ad_image, class:'img-thumbnail') %>
-        <h3><%= @ad.title %><h3>
-        <h5><%= number_to_currency(@ad.price) %></h5>
+        <div><%= image_tag(@ad.ad_image, class:'img-thumbnail') %></div>
+        <h5><%= @ad.title %><h5>
+        <h6><%= number_to_currency(@ad.price) %></h6>
 
         <div class="form-group">
           <%= label_tag "Quantity" %>
@@ -19,17 +19,17 @@
 
       <div class="col-md-8">
           <div class="form-group">
-            <%= label_tag 'Address' %><br>
-            <%= text_field_tag 'checkout[address]' %>
+            <%= label_tag 'Street' %><br>
+            <%= text_field_tag 'checkout[street]' %>
           </div>
 
           <div class="form-group">
-            <%= label_tag :city %><br>
+            <%= label_tag 'City' %><br>
             <%= text_field_tag 'checkout[city]' %>
           </div>
 
           <div class="form-group">
-            <%= label :postal_code, 'Zip/Postal Code' %><br>
+            <%= label_tag 'Zip/Postal Code' %><br>
             <%= text_field_tag 'checkout[postal_code]' %>
           </div>
 
@@ -39,7 +39,7 @@
           </div>
 
           <%= hidden_field_tag(:ad_id, @ad.id) %>
-          <%= submit_tag("Search") %>
+          <%= submit_tag("Search", class:'btn btn-success', style: 'position: absolute; bottom: -50px; right: 8px;') %>
 
       <% end %>
 
