@@ -2,53 +2,46 @@
   <div class="card-body ad text-center">
     <div class="row" style="position: relative;">
       <div class="col-md-4">
-
-        <%= form_for(@address) do |f| %>
-
-        <% if @address.errors.any? %>
-          <% @address.errors.full_messages.each do |error| %>
-            <%= alert_generator error %>
-          <% end %>
-        <% end %>
+        <%= form_tag checkout_path(@ad), method: "get" do %>
 
         <%= image_tag(@ad.ad_image, class:'img-thumbnail') %>
         <h3><%= @ad.title %><h3>
         <h5><%= number_to_currency(@ad.price) %></h5>
 
         <div class="form-group">
-          <%= f.label "Quantity" %>
-          <%= f.select(:quantity, options_for_select([['1', '1 bought'], ['2', '2 bought'], ['3', '3 bought'], ['4', '4 bought'], ['5', '5 bought']]))  %><br>
-
+          <%= label_tag "Quantity" %>
+          <%= select_tag(:quantity, options_for_select([['1', '1 bought'], ['2', '2 bought'], ['3', '3 bought'], ['4', '4 bought'], ['5', '5 bought']]))  %><br>
         </div>
 
         <p><%= 'Posted by:' + ' ' + @ad.user.first_name + ' ' + @ad.user.last_name unless @ad.user.nil? %></p>
+
       </div>
 
       <div class="col-md-8">
           <div class="form-group">
-            <%= f.label :address %><br>
-            <%= f.text_field :address, class:'' %>
+            <%= label_tag 'Address' %><br>
+            <%= text_field_tag 'checkout[address]' %>
           </div>
 
           <div class="form-group">
-            <%= f.label :city %><br>
-            <%= f.text_field :city, class:'' %>
+            <%= label_tag :city %><br>
+            <%= text_field_tag 'checkout[city]' %>
           </div>
 
           <div class="form-group">
-            <%= f.label :postal_code, 'Zip/Postal Code' %><br>
-            <%= f.text_field :postal_code, class:'' %>
+            <%= label :postal_code, 'Zip/Postal Code' %><br>
+            <%= text_field_tag 'checkout[postal_code]' %>
           </div>
 
           <div class="form-group">
-            <%= f.label :state %><br>
-            <%= f.text_field :state, class:'' %>
+            <%= label_tag :state %><br>
+            <%= text_field_tag 'checkout[state]' %>
           </div>
 
-          <div class="actions">
-            <%= f.submit "Continue", class: 'btn btn-success', style: 'position: absolute; bottom: -50px; right: 8px;' %>
-        </div>
-        <% end %>
+          <%= hidden_field_tag(:ad_id, @ad.id) %>
+          <%= submit_tag("Search") %>
+
+      <% end %>
 
       </div>
     </div>

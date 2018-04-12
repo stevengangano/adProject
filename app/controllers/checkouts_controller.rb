@@ -1,4 +1,5 @@
 class CheckoutsController < ApplicationController
+  before_action :find_ad, only: :show
 
   def new
     @ad = Ad.find(params[:ad_id])
@@ -24,10 +25,18 @@ class CheckoutsController < ApplicationController
     end
   end
 
+  #Intead of show, use update next time
+  def update
+
+  end
 
   def show
     @checkout_info = Checkout.find(params[:id])
-    # @ad = Ad.find(params[:ad_id])
+    @checkout_info.update_attributes(checkout_params)
+  end
+
+  def find_ad
+    @ad = Ad.find(params[:ad_id])
   end
 
   def checkout_params
