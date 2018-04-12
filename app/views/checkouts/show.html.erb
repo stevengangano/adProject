@@ -15,11 +15,6 @@
         Item: <%= @ad.title%><br>
         <span> Qty: <%= @checkout_info.quantity.to_i %> </span><br>
         <p> Order Total: <%= number_to_currency(@ad.price * @checkout_info.quantity) %></p>
-        <%= @ad.price.to_f * @checkout_info.quantity.to_f %> <br>
-        <%= @ad.price.to_i * @checkout_info.quantity.to_i %><br>
-        <%= @ad.price.to_f * @checkout_info.quantity.to_i %><br>
-        <%= @ad.price.to_f * @checkout_info.quantity.to_i %><br>
-        <%= (@ad.price) * (@checkout_info.quantity) %>
       </div>
     </div>
   </div>
