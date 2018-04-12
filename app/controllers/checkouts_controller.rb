@@ -1,5 +1,5 @@
 class CheckoutsController < ApplicationController
-  before_action :find_ad, only: :show
+  before_action :find_ad, only: :create
 
   def new
     @ad = Ad.find(params[:ad_id])
@@ -15,11 +15,11 @@ class CheckoutsController < ApplicationController
   end
 
   def create
-    @ad = Checkout.new(checkout_params)
-    @ad.user = current_user
-    if @ad.save
-        flash[:notice] = ""
-        redirect_to checkout_path(@ad)
+    @address = Checkout.new(checkout_params)
+    @address.user = current_user
+    if @address.save
+        @ad.update_attributes(checkout_id: @address.id)
+        redirect_to checkout_path(@address)
     else
       render :new
     end
@@ -32,7 +32,7 @@ class CheckoutsController < ApplicationController
 
   def show
     @checkout_info = Checkout.find(params[:id])
-    @checkout_info.update_attributes(checkout_params)
+    @ad =  @checkout_info.ads.first
   end
 
   def find_ad

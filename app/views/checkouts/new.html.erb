@@ -2,7 +2,7 @@
   <div class="card-body ad text-center">
     <div class="row" style="position: relative;">
       <div class="col-md-4">
-        <%= form_tag checkout_path(@ad), method: "get" do %>
+        <%= form_tag  checkouts_path(@address), method: "post" do %>
 
         <%= image_tag(@ad.ad_image, class:'img-thumbnail') %>
         <h3><%= @ad.title %><h3>
@@ -10,7 +10,7 @@
 
         <div class="form-group">
           <%= label_tag "Quantity" %>
-          <%= select_tag(:quantity, options_for_select([['1', '1 bought'], ['2', '2 bought'], ['3', '3 bought'], ['4', '4 bought'], ['5', '5 bought']]))  %><br>
+          <%= select_tag('checkout[quantity]', options_for_select([['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5']]))  %><br>
         </div>
 
         <p><%= 'Posted by:' + ' ' + @ad.user.first_name + ' ' + @ad.user.last_name unless @ad.user.nil? %></p>
