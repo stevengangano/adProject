@@ -7,7 +7,7 @@ class Ad < ActiveRecord::Base
   enum status: { draft: 0, published: 1 }
   mount_uploader :ad_image, AvatarUploader
 
-  validates_presence_of :title, :price, :description, :ad_image
+  validates_presence_of :title, :price, :description
 
   def self.recent
     order("created_at DESC")

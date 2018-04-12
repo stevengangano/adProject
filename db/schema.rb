@@ -11,11 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180411191740) do
+ActiveRecord::Schema.define(version: 20180412211223) do
 
   create_table "ads", force: :cascade do |t|
     t.string   "title"
-    t.decimal  "price"
     t.text     "description"
     t.string   "ad_image"
     t.datetime "created_at",              null: false
@@ -25,6 +24,7 @@ ActiveRecord::Schema.define(version: 20180411191740) do
     t.integer  "category_id"
     t.integer  "detail_id"
     t.integer  "checkout_id"
+    t.float    "price"
   end
 
   add_index "ads", ["category_id"], name: "index_ads_on_category_id"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20180411191740) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
-    t.decimal  "quantity"
+    t.integer  "quantity"
   end
 
   create_table "details", force: :cascade do |t|
