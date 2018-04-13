@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :checkouts
-  #Needed for detail Model to work
+  resources :payments
 
+  resources :checkouts
 
   resources :categories, only: [:index, :show]
 

@@ -31,11 +31,6 @@ class CheckoutsController < ApplicationController
     #Displays: <Ad id: 1, title: "Macbook", price: "2,532.43", description: "Macbook", ad_image: "macbook.jpg", created_at: "2018-04-12 18:19:43", updated_at: "2018-04-12 19:13:35", status: 1, user_id: 1, category_id: 1, detail_id: nil, checkout_id: 13>
   end
 
-  #Intead of show, use update next time
-  def update
-
-  end
-
   def show
     #Checkout info
     @checkout_info = Checkout.find(params[:id])
