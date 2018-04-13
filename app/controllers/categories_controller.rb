@@ -2,13 +2,13 @@ class CategoriesController < ApplicationController
   before_action :set_sidebar_categories, only: [:index, :show]
 
   def index
-    @categories = Category.all.page(params[:page]).per(9)
-    @ads = Ad.published
+    @categories = Category.all
+    @ads = Ad.published.recent.page(params[:page]).per(6)
   end
 
   def show
     @category = Category.find(params[:id])
-    @ads = @category.ads.all #can add pagination and recent
+    @ads = @category.ads.all.recent.published.page(params[:page]).per(6)
   end
 
   private

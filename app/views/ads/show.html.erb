@@ -2,15 +2,11 @@
   <div class="card-body ad">
     <h1><%= @ad.title %><h1>
     <h5><%= number_to_currency(@ad.price) %></h5>
-    <br>
     <h5><%= simple_format @ad.description %></h5>
-    <br>
-
     <%= image_tag(@ad.ad_image) %>
     <br><br>
 
-    <!-- <%= @ad.inspect %> -->
-
+    <%= link_to 'Back', new_ad_path, style: "float:left;" %>
     <%= link_to 'Post', toggle_status_ad_path(@ad), class:"btn btn-success", style: "float:right;" %>
   </div>
 </div>

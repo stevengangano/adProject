@@ -98,6 +98,20 @@ a.nav-link:hover {
   width: 75%;
 }
 
+// Categories
+.inactive {
+  color: black;
+}
+
+.active {
+  font-weight: bold;
+  color: black;
+  text-decoration: underline;
+}
+
+
+
+
 // Media Queries
 // Extra small devices (portrait phones, less than 576px)
 // No media query since this is the default in Bootstrap
