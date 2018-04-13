@@ -1,4 +1,5 @@
 class Ad < ActiveRecord::Base
+  after_initialize :set_defaults
   belongs_to :user
   belongs_to :category
   belongs_to :checkout
@@ -12,6 +13,15 @@ class Ad < ActiveRecord::Base
   def self.recent
     order("created_at DESC")
   end
+
+  #If nothing is passed for main image or thumb image, these will be the
+  #defaults
+  after_initialize :set_defaults
+
+  def set_defaults
+    self.ad_image ||= "http://placehold.it/200x200"
+  end
+
 
   private
   def avatar_size_validation

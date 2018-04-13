@@ -16,6 +16,7 @@ user = User.create! :first_name => 'John', :last_name => 'Doe', :email => 'johnd
 60.times do
  Ad.create!(
    title: Faker::App.name,
+   ad_image: Faker::Avatar.image,
    description: Faker::Lorem.paragraph + Faker::Lorem.paragraph + Faker::Lorem.paragraph,
    price: Faker::Number.decimal(2),
    category_id: 1,
