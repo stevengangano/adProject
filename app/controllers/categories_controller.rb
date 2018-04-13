@@ -4,6 +4,7 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.all
     @ads = Ad.published.recent.page(params[:page]).per(6)
+
   end
 
   def show

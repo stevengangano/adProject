@@ -27,6 +27,7 @@
         <div class="card-body">
           <h3><%= ad.title %></h3>
           <h6><%= number_to_currency(ad.price) %></h6>
+          <%= ad.quantity %> left in stock
           <p class="card-text"><%= simple_format ad.description %> </p>
           <div class="d-flex justify-content-between align-items-center">
             <!-- <div class="btn-group">
@@ -39,7 +40,7 @@
           </div>
           <br>
           <% if ad.user != current_user %>
-            <%= link_to 'Buy', ad_detail_path(ad), class:'btn btn-success btn-sm', style:'float: right;' %>
+            <%= link_to 'Buy', new_checkout_path, class:'btn btn-success btn-sm', style:'float: right;' %>
           <% end %>
         </div>
       </div>

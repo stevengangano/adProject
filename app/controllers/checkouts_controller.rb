@@ -39,7 +39,6 @@ class CheckoutsController < ApplicationController
   def show
     #Checkout info
     @checkout_info = Checkout.find(params[:id])
-
     #Ads info. Because an association was created
     @ad =  @checkout_info.ads.first
     @amount = @ad.price * @checkout_info.quantity.to_f

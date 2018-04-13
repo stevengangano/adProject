@@ -1,12 +1,12 @@
 <div class="card login-register-edit">
   <div class="card-body ad">
-    <h1><%= @ad.title %><h1>
-    <h5><%= number_to_currency(@ad.price) %></h5>
-    <h5><%= simple_format @ad.description %></h5>
-    <%= image_tag(@ad.ad_image) %>
+    <h3>Item: <%= @ad.title %> </span></h3>
+    <span>Qty: <%= @ad.quantity %></span><br>
+    <span>Price: <%= number_to_currency(@ad.price) %></span><br>
+    <span>Description:<%= simple_format @ad.description %></span>
+    <%=image_tag(@ad.ad_image) %>
     <br><br>
 
-    <%= link_to 'Back', new_ad_path, style: "float:left;" %>
     <%= link_to 'Post', toggle_status_ad_path(@ad), class:"btn btn-success", style: "float:right;" %>
   </div>
 </div>

@@ -23,10 +23,9 @@ class AdsController < ApplicationController
     # @article.user = current_user
     @ad.user = current_user
     if @ad.save
-        flash[:notice] = ""
         redirect_to ad_path(@ad)
     else
-      render :new
+      render 'new'
     end
   end
 
@@ -79,14 +78,8 @@ class AdsController < ApplicationController
                                  :ad_image,
                                  :avatar_cache,
                                  :remove_avatar,
-                                 :category_id)
-    end
-
-    def detail_params
-      params.require(:detail).permit(:address,
-                                 :city,
-                                 :postal_code,
-                                 :state)
+                                 :category_id,
+                                 :quantity)
     end
 
     def set_sidebar_categories

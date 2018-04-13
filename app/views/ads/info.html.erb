@@ -2,10 +2,8 @@
   <div class="card-body ad text-center">
     <h1><%= @ad.title %><h1>
     <h5><%= number_to_currency(@ad.price) %></h5>
-    <br>
     <h5><%= simple_format @ad.description %></h5>
-    <br>
-
+    <p><%= @ad.quantity %> left in stock</p>
     <%= image_tag(@ad.ad_image, class:'img-responsive') %>
     <br><br>
 
