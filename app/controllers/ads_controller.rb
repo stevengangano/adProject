@@ -8,19 +8,19 @@ class AdsController < ApplicationController
 
   def index
     @ads = Ad.published.recent.page(params[:page]).per(9)
-    # @portfolios = Portfolioo.all
-    # @portfolio = Portfolioo.paginate(page: params[:page], per_page: 5)
   end
 
   def new
     @ad = Ad.new
   end
 
-  # Posts an article from (articles/new)
   def create
-    #render plain: params[:article].inspect
+    #allows the "ad_params" to be passed into "AD.new"
+    #after submit action is clicked
+    #This is passed to show action so 
+    #Ad.find(params[:id]) can be used
     @ad = Ad.new(ad_params)
-    # @article.user = current_user
+    #Post will be saved under the current_user
     @ad.user = current_user
     if @ad.save
         redirect_to ad_path(@ad)
@@ -33,9 +33,8 @@ class AdsController < ApplicationController
   #   # @portfolio = Portfolioo.find(params[:id])
   # end
 
-  # #no template
   # def update
-  #   # @portfolio = Portfolioo.find(params[:id])
+  #   #updates the params in the form
   #   if @portfolio.update(portfolio_params)
   #     flash[:notice] = "Article was successfully updated"
   #     redirect_to portfolio_path
@@ -45,12 +44,19 @@ class AdsController < ApplicationController
   # end
 
   def show
-    # @portfolio = Portfolioo.find(params[:id])
+    #Once "AD" is created, this grabs "Ad.id" which is
+    #passed into the URL "ads/:id"
+
+    #Ad.find(params[:id]) is available because of Ad.new(ad_params)
+    #create action
+
+    #@ad displays that particular info for that "Ad"
     @ad = Ad.find(params[:id])
   end
 
 
   def info
+    #params is needed because of "ads/:id/info"
     @ad = Ad.find(params[:id])
   end
 

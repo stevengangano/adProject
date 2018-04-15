@@ -9,9 +9,8 @@
       <li style="margin-right: 10px;">Categories: </li>
       <a href="<%=categories_url%>"><li class="inactive" style='margin-right: 20px;'> All </li> </a>
       <% @side_bar_categories.each do |category| %>
-        <li><%= link_to category.title, category_path(category), class: '', style: 'color: black; margin-right: 20px;' %></li>
+        <li><%= link_to category.title, category_path(category), style: 'color: black; margin-right: 20px;' %></li>
       <% end %>
-      <!-- <li class="breadcrumb-item active" aria-current="page">Data</li> -->
     </ol>
   </nav>
 
@@ -20,8 +19,6 @@
   </div>
 
   <div class="row">
-
-
     <% @ads.each do |ad| %>
     <div class="col-md-4">
       <div class="card mb-4 box-shadow">

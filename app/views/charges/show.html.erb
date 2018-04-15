@@ -1,6 +1,6 @@
 <div class="card login-register-edit">
   <div class="card-body ad">
-    <h3> Review your order </h3>
+    <h3> Confirm your order </h3><br>
 
     <div class="row">
       <div class="col-md-6">
@@ -14,9 +14,9 @@
         <%= image_tag(@ad.ad_image, class:'img-thumbnail') %><br>
         Item: <%= @ad.title%><br>
         <span> Qty: <%= @checkout_info.quantity.to_i %> </span><br>
-        <p> Order Total: <%= number_to_currency(@amount) %></p>
+        <p> Order Total: <%= number_to_currency(@ad.price * @checkout_info.quantity.to_f) %>  </p>
 
-        <%= link_to 'Continue to checkout', new_charge_path(:ad_id => @ad.id, :id => @checkout_info.id), class:'btn btn-success btn-sm', style:'float: right;' %>
+        <%= link_to 'Place your order', root_path, class:'btn btn-success btn-sm', style:'float: right;' %>
       </div>
     </div>
   </div>

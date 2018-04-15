@@ -1,8 +1,16 @@
 class CheckoutsController < ApplicationController
-  before_action :find_ad, only: :create
 
   def new
+    #because "buy button" in views/ads/info.html.erb
+    #redirects to new_checkout_path(:ad_id => @ad.id),
+    
+    #URL = http://localhost:3000/checkouts/new?ad_id=60
+
+    #passes same @ad.id from info.html.erb to this page
     @ad = Ad.find(params[:ad_id])
+
+    #instance variable passed at top of form to
+    #redirect to a certain page
     @checkout = Checkout.new
     if current_user.nil?
       redirect_to(new_user_session_path)
@@ -15,10 +23,21 @@ class CheckoutsController < ApplicationController
   end
 
   def create
+    #Needed so 'checkout_id' is updated when
+    #user submits the form. Needed so '@ad' in
+    #show action has 'checkout_id' is updated
+    @ad = Ad.find(params[:ad_id])
+
+    #Once submit button is pressed, allows
+    #'checkout_parmams' to go through
+
     @checkout = Checkout.new(checkout_params)
     @checkout.user = current_user
     if @checkout.save
-        #Updates 'checkout_id' in Ad.
+        #This grabs 'id' from 'Checkout' (@checkout.id) 
+        #and updates ad with the same checkout_id
+        #They both need to have the same checkout.id
+        #so same ad info displays to next screen
         @ad.update_attributes(checkout_id: @checkout.id)
         redirect_to checkout_path(@checkout)
     else
@@ -32,16 +51,25 @@ class CheckoutsController < ApplicationController
   end
 
   def show
-    #Checkout info
+    #Displays data from 'Checkout' model
+    #Needed because URL is checkouts/:id
     @checkout_info = Checkout.find(params[:id])
-    #Ads info. Because an association was created
+
+    #Displays data from 'Ad' model
+
+    #@checkout_info.ads because of association created
+    #between 'Checkout' and 'Ads'
+
+    #@checkout_info grabs the 'checkout' ID and grabs
+    #Ad associated with that.
+
+    #Can use either first or last since there is only 1
+    #'ads' checkout.id is updated from create action
     @ad =  @checkout_info.ads.first
     @amount = @ad.price * @checkout_info.quantity.to_f
   end
 
-  def find_ad
-    @ad = Ad.find(params[:ad_id])
-  end
+
 
   def checkout_params
     params.require(:checkout).permit(:address,
