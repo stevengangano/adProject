@@ -8,13 +8,13 @@ class ChargesController < ApplicationController
   end
 
   def create
-    byebug
     @checkout_info = Checkout.find(params[:id])
     @ad = Ad.find(params[:ad_id])
 
     #Update quantity
     @update_qty = @ad.quantity - @checkout_info.quantity.to_i
     @ad.update_attributes(quantity: @update_qty.to_i)
+
 
     # Amount in cents
     @amount = 100 * @ad.price.to_i
