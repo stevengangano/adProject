@@ -1,5 +1,4 @@
 class CheckoutsController < ApplicationController
-
   def new
     #because "buy button" in views/ads/info.html.erb
     #redirects to new_checkout_path(:ad_id => @ad.id),

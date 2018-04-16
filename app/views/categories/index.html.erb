@@ -5,13 +5,13 @@
   </div>
 
   <nav class="breadcrumb-show-all" aria-label="breadcrumb" style="margin-top: 30px;">
-    <ol class="breadcrumb">
+    <ol class="breadcrumb breadcrumb-hide">
       <li style="margin-right: 10px;">Categories: </li>
       <a href="<%=categories_url%>"><li class="active" style='margin-right: 20px;'> All </li> </a>
       <% @side_bar_categories.each do |category| %>
         <li><%= link_to category.title, category_path(category), style: 'margin-right: 20px;' %></li>
       <% end %>
-  
+
     </ol>
   </nav>
 
@@ -20,33 +20,48 @@
   </div>
 
   <div class="row">
-    <% @ads.each do |ad| %>
-    <div class="col-md-4">
-      <div class="card mb-4 box-shadow">
-        <%= image_tag(ad.ad_image, class:'card-img-top', alt:"Pet") %>
-        <div class="card-body">
-          <h3><%= ad.title %></h3>
-          <h6><%= number_to_currency(ad.price) %></h6>
-          <%= ad.quantity %> left in stock
-          <p class="card-text"><%= simple_format ad.description %> </p>
-          <div class="d-flex justify-content-between align-items-center">
+    <div class="col-md-9">
+      <div class="row">
+        <% @ads.each do |ad| %>
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow">
+            <%= image_tag(ad.ad_image, class:'card-img-top', alt:"Pet") %>
+            <div class="card-body">
+              <h3><%= ad.title %></h3>
+              <h6><%= number_to_currency(ad.price) %></h6>
+              <%= ad.quantity %> left in stock
+              <p class="card-text"><%= simple_format ad.description %> </p>
+              <div class="d-flex justify-content-between align-items-center">
             <!-- <div class="btn-group">
               <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
               <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
             </div> -->
-            <small class="text-muted">
-              <%= 'Posted by:' + ' ' + ad.user.first_name + ' ' + ad.user.last_name unless ad.user.nil? %>
-            </small>
+              <small class="text-muted">
+                <%= 'Posted by:' + ' ' + ad.user.first_name + ' ' + ad.user.last_name unless ad.user.nil? %>
+              </small>
+            </div>
+            <br>
+            <% if ad.user != current_user %>
+              <%= link_to 'Buy', new_checkout_path(:ad_id => ad.id), class:'btn btn-success btn-sm', style:'float: right;' %>
+            <% end %>
           </div>
-          <br>
-          <% if ad.user != current_user %>
-            <%= link_to 'Buy', new_checkout_path(:ad_id => ad.id), class:'btn btn-success btn-sm', style:'float: right;' %>
-          <% end %>
         </div>
       </div>
-    </div>
     <% end %>
+    </div>
   </div>
+  <div class="col-md-3 sidebar">
+    <ul class="list-group">
+      <li class="list-group-item">
+        <h6 style="text-decoration:underline; margin-bottom: 15px;"> Categories </h6>
+        <a href="<%=categories_url%>"><p> All </p> </a>
+        <% @side_bar_categories.each do |category| %>
+        <p class=""><%= link_to category.title, category_path(category, class:'') %></p>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
 
 
   <div class="row align-items-center justify-content-center">
