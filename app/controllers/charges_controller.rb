@@ -8,39 +8,37 @@ class ChargesController < ApplicationController
   end
 
   def create
-    # byebug
-    # @ad = Ad.find(params[:ad_id])
+    byebug
+    @checkout_info = Checkout.find(params[:id])
+    @ad = Ad.find(params[:ad_id])
+
+    #Update quantity
+    @update_qty = @ad.quantity - @checkout_info.quantity.to_i
+    @ad.update_attributes(quantity: @update_qty.to_i)
 
     # Amount in cents
-    @amount = 99
+    @amount = 100 * @ad.price.to_i
 
-    # Get the credit card details submitted by the form
     customer = Stripe::Customer.create(
-        :email => params[:email],
-        :source  => params[:stripeToken]
+      :email => params[:stripeEmail],
+      :source  => params[:stripeToken]
     )
 
-    # Create the charge on Stripe's servers - this will charge the user's card
-    begin
-      Stripe::Charge.create(
-          :amount => @amount,
-          :currency => 'usd',
-          :customer => customer.id,
-          :description => 'Example charge custom form'
-      )
-      redirect_to charges_path
-      flash[:notice] = 'Thanks'
-      # remember to create a thanks.html.erb page in view/charges :)
+    charge = Stripe::Charge.create(
+      :customer    => customer.id,
+      :amount      => @amount,
+      :description => 'Rails Stripe customer',
+      :currency    => 'usd'
+    )
+    redirect_to charge_path(@checkout_info)
+    flash[:notice] = 'Payment successful'
 
-  rescue Stripe::CardError => e
-    flash[:error] = 'This is an error from payment'
-    redirect_to charges_path
+    rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to payment_error_path
   end
 
+
+  def show
+  end
 end
-
-
- def show
- end
-end
-

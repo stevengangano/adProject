@@ -3,7 +3,7 @@ class CheckoutsController < ApplicationController
   def new
     #because "buy button" in views/ads/info.html.erb
     #redirects to new_checkout_path(:ad_id => @ad.id),
-    
+
     #URL = http://localhost:3000/checkouts/new?ad_id=60
 
     #passes same @ad.id from info.html.erb to this page
@@ -25,7 +25,7 @@ class CheckoutsController < ApplicationController
   def create
     #Needed so 'checkout_id' is updated when
     #user submits the form. Needed so '@ad' in
-    #show action has 'checkout_id' is updated
+    #show action has 'checkout_id' updated
     @ad = Ad.find(params[:ad_id])
 
     #Once submit button is pressed, allows
@@ -34,7 +34,7 @@ class CheckoutsController < ApplicationController
     @checkout = Checkout.new(checkout_params)
     @checkout.user = current_user
     if @checkout.save
-        #This grabs 'id' from 'Checkout' (@checkout.id) 
+        #This grabs 'id' from 'Checkout' (@checkout.id)
         #and updates ad with the same checkout_id
         #They both need to have the same checkout.id
         #so same ad info displays to next screen
