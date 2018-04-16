@@ -11,13 +11,9 @@ class ChargesController < ApplicationController
     @checkout_info = Checkout.find(params[:id])
     @ad = Ad.find(params[:ad_id])
 
-    #Update quantity
-    @update_qty = @ad.quantity - @checkout_info.quantity.to_i
-    @ad.update_attributes(quantity: @update_qty.to_i)
-
 
     # Amount in cents
-    @amount = 100 * @ad.price.to_i
+    @amount = (@ad.price.to_i * 100 * @checkout_info.quantity.to_i).to_i
 
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
@@ -27,11 +23,20 @@ class ChargesController < ApplicationController
     charge = Stripe::Charge.create(
       :customer    => customer.id,
       :amount      => @amount,
-      :description => 'Rails Stripe customer',
+      :description => @ad.title,
       :currency    => 'usd'
     )
-    redirect_to charge_path(@checkout_info)
-    flash[:notice] = 'Payment successful'
+    #If buyer buys less or equal to stock amount
+    if @checkout_info.quantity.to_i <= @ad.quantity
+      #Update quantity
+      @update_qty = @ad.quantity - @checkout_info.quantity.to_i
+      @ad.update_attributes(quantity: @update_qty.to_i)
+      redirect_to charge_path(@checkout_info)
+      flash[:notice] = 'Payment successful'
+    elsif
+      flash[:error] = 'There are no items left in stock'
+      render :new
+    end
 
     rescue Stripe::CardError => e
     flash[:error] = e.message
@@ -40,5 +45,6 @@ class ChargesController < ApplicationController
 
 
   def show
+
   end
 end

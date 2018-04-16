@@ -13,6 +13,7 @@
           <%= select_tag('checkout[quantity]', options_for_select([['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5']]))  %><br>
         </div>
 
+        <p><%= @ad.quantity%> left in stock</p>
         <p><%= 'Posted by:' + ' ' + @ad.user.first_name + ' ' + @ad.user.last_name unless @ad.user.nil? %></p>
 
       </div>

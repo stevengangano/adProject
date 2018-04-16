@@ -69,7 +69,7 @@
           <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                   data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                   data-description="A month's subscription"
-                  data-amount="500"
+                  data-amount="<%= @ad.price * 100 * @checkout_info.quantity.to_f %>"
                   data-locale="auto"></script>
                   <%= hidden_field_tag(:ad_id, @ad.id) %>
                   <%= hidden_field_tag(:id, @checkout_info.id) %>

@@ -33,7 +33,8 @@ class CheckoutsController < ApplicationController
 
     @checkout = Checkout.new(checkout_params)
     @checkout.user = current_user
-    if @checkout.save
+    #Save params and if bought left or equal to in stock
+    if @checkout.save && @checkout.quantity.to_i <= @ad.quantity
         #This grabs 'id' from 'Checkout' (@checkout.id)
         #and updates ad with the same checkout_id
         #They both need to have the same checkout.id
@@ -42,6 +43,9 @@ class CheckoutsController < ApplicationController
         redirect_to checkout_path(@checkout)
     else
       render :new
+      flash[:notice] = "There is not enough in stock"
+      #prevents flash notice from showing when redirect to
+      #checkout_path(@checkout)
     end
 
     puts @checkout.inspect
