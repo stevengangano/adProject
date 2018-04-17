@@ -7,7 +7,8 @@ class AdsController < ApplicationController
   before_action :set_sidebar_categories, only: [:index]
 
   def index
-    @ads = Ad.published.recent.page(params[:page]).per(9)
+
+    @ads = Ad.published.recent.where("quantity > ?", 0).page(params[:page]).per(9)
   end
 
   def new
@@ -17,7 +18,7 @@ class AdsController < ApplicationController
   def create
     #allows the "ad_params" to be passed into "AD.new"
     #after submit action is clicked
-    #This is passed to show action so 
+    #This is passed to show action so
     #Ad.find(params[:id]) can be used
     @ad = Ad.new(ad_params)
     #Post will be saved under the current_user
