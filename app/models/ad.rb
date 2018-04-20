@@ -18,6 +18,8 @@ class Ad < ActiveRecord::Base
     self.ad_image ||= "http://placehold.it/200x200"
   end
 
+  scope :item_is_in_stock, -> {where("quantity > ?", 0)}
+
 
   private
   def avatar_size_validation

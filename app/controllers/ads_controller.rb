@@ -7,8 +7,7 @@ class AdsController < ApplicationController
   before_action :set_sidebar_categories, only: [:index]
 
   def index
-
-    @ads = Ad.published.recent.where("quantity > ?", 0).page(params[:page]).per(9)
+    @ads = Ad.published.recent.item_is_in_stock.page(params[:page]).per(9)
   end
 
   def new

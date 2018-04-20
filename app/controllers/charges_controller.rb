@@ -44,7 +44,18 @@ class ChargesController < ApplicationController
   end
 
 
-  def show
+  def sold
+    @user = User.find(params[:id])
+    @user_ads = @user.ads
+    @user_checkouts = @user.checkouts
 
   end
+
 end
+
+# pass info from create
+
+# image
+# title
+# checkout_info.quantity = sold quantity
+# @amount = (@ad.price.to_i * 100 * @checkout_info.quantity.to_i).to_i

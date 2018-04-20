@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   #Overides show path in 'resourches :users'
   get 'users/:id', to: 'users#show', as: 'user'
+  get 'users/sold/:id', to: 'charges#sold', as: 'sold'
 
   resources :users, except: [:new]
 

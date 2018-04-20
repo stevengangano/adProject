@@ -5,4 +5,9 @@ class UsersController < ApplicationController
     @user_ads = @user.ads
   end
 
+  def sold
+    @user = User.find(params[:id])
+  end
+
+
 end
